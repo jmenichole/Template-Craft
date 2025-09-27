@@ -81,6 +81,9 @@
                             <option value="linkedin">LinkedIn</option>
                             <option value="youtube">YouTube</option>
                             <option value="tiktok">TikTok</option>
+                            <option value="kick">Kick</option>
+                            <option value="twitch">Twitch</option>
+                            <option value="discord">Discord</option>
                             <option value="website">Website</option>
                             <option value="print">Print Material</option>
                             <option value="email">Email</option>
@@ -96,6 +99,8 @@
                             <option value="1080x1920">Story (1080x1920) - Instagram/Facebook Story</option>
                             <option value="1200x628">Landscape (1200x628) - Facebook Post</option>
                             <option value="1500x500">Banner (1500x500) - Website Header</option>
+                            <option value="1920x1080">Stream Banner (1920x1080) - Kick/Twitch</option>
+                            <option value="1200x480">Channel Banner (1200x480) - Kick/Twitch</option>
                             <option value="500x500">Logo (500x500) - Square Logo</option>
                             <option value="custom">Custom Size</option>
                         </select>
@@ -104,6 +109,47 @@
                     <div class="form-group" id="custom-dimensions" style="display: none;">
                         <label for="custom-size">Custom Dimensions (Width x Height)</label>
                         <input type="text" name="custom-size" id="custom-size" placeholder="e.g., 800x600">
+                    </div>
+                </fieldset>
+
+                <!-- Call to Action & Focus -->
+                <fieldset class="form-section">
+                    <legend>Call to Action & Focus (Optional)</legend>
+                    
+                    <div class="form-group">
+                        <label for="topic-focus">Main Topic/Focus</label>
+                        <input type="text" name="topic-focus" id="topic-focus" placeholder="e.g., Product Launch, Event Promotion, Brand Awareness">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cta-text">Call to Action Text</label>
+                        <input type="text" name="cta-text" id="cta-text" placeholder="e.g., Shop Now, Learn More, Sign Up, Subscribe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cta-type">Call to Action Type</label>
+                        <select name="cta-type" id="cta-type">
+                            <option value="">Select CTA type...</option>
+                            <option value="button">Button</option>
+                            <option value="link">Text Link</option>
+                            <option value="banner">Banner/Badge</option>
+                            <option value="overlay">Overlay Text</option>
+                            <option value="integrated">Integrated in Design</option>
+                            <option value="none">No CTA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urgency">Urgency/Timing</label>
+                        <select name="urgency" id="urgency">
+                            <option value="">Select urgency...</option>
+                            <option value="immediate">Immediate (Act Now)</option>
+                            <option value="limited-time">Limited Time Offer</option>
+                            <option value="upcoming">Upcoming Event/Launch</option>
+                            <option value="ongoing">Ongoing Campaign</option>
+                            <option value="seasonal">Seasonal/Holiday</option>
+                            <option value="none">No Time Pressure</option>
+                        </select>
                     </div>
                 </fieldset>
 

@@ -68,6 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
             summary += `Target Audience: ${templateData['target-audience']}\n`;
         }
         
+        if (templateData['topic-focus']) {
+            summary += `Main Topic/Focus: ${templateData['topic-focus']}\n`;
+        }
+        
+        if (templateData['cta-text']) {
+            summary += `Call to Action: ${templateData['cta-text']}\n`;
+        }
+        
+        if (templateData['cta-type']) {
+            summary += `CTA Type: ${getDisplayName('cta-type', templateData['cta-type'])}\n`;
+        }
+        
+        if (templateData['urgency']) {
+            summary += `Urgency/Timing: ${getDisplayName('urgency', templateData['urgency'])}\n`;
+        }
+        
         if (templateData['mood']) {
             summary += `Mood: ${getDisplayName('mood', templateData['mood'])}\n`;
         }
