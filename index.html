@@ -16,25 +16,137 @@
 
     <main>
         <section id="order-form">
-            <h2>Request a Template</h2>
+            <h2>Create Your Custom Template</h2>
             <form id="template-request">
+                <!-- Template Type Selection -->
                 <div class="form-group">
-                    <label>What type of template do you need?</label>
-                    <select name="template-type">
-                        <option value="website">Website Template</option>
-                        <option value="document">Document Template</option>
+                    <label for="template-type">What type of template do you need?</label>
+                    <select name="template-type" id="template-type" required>
+                        <option value="">Select a template type...</option>
+                        <option value="social-media-post">Social Media Post</option>
+                        <option value="social-media-story">Social Media Story</option>
+                        <option value="banner">Banner/Header</option>
+                        <option value="logo">Logo Design</option>
+                        <option value="infographic">Infographic</option>
+                        <option value="business-card">Business Card</option>
+                        <option value="flyer">Flyer/Poster</option>
                         <option value="presentation">Presentation Template</option>
+                        <option value="email-signature">Email Signature</option>
+                        <option value="website-template">Website Template</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
+                <!-- Brand Information -->
+                <fieldset class="form-section">
+                    <legend>Brand Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="brand-name">Brand/Business Name</label>
+                        <input type="text" name="brand-name" id="brand-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand-colors">Brand Colors (e.g., #FF5733, blue, etc.)</label>
+                        <input type="text" name="brand-colors" id="brand-colors" placeholder="Enter your brand colors">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand-style">Brand Style</label>
+                        <select name="brand-style" id="brand-style">
+                            <option value="">Select style...</option>
+                            <option value="modern">Modern & Clean</option>
+                            <option value="professional">Professional & Corporate</option>
+                            <option value="creative">Creative & Artistic</option>
+                            <option value="minimalist">Minimalist</option>
+                            <option value="bold">Bold & Vibrant</option>
+                            <option value="elegant">Elegant & Sophisticated</option>
+                            <option value="playful">Playful & Fun</option>
+                            <option value="vintage">Vintage & Retro</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Content Specifications -->
+                <fieldset class="form-section">
+                    <legend>Content Specifications</legend>
+                    
+                    <div class="form-group">
+                        <label for="platform">Target Platform/Use</label>
+                        <select name="platform" id="platform">
+                            <option value="">Select platform...</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="twitter">Twitter/X</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="website">Website</option>
+                            <option value="print">Print Material</option>
+                            <option value="email">Email</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dimensions">Preferred Dimensions</label>
+                        <select name="dimensions" id="dimensions">
+                            <option value="">Select dimensions...</option>
+                            <option value="1080x1080">Square (1080x1080) - Instagram Post</option>
+                            <option value="1080x1920">Story (1080x1920) - Instagram/Facebook Story</option>
+                            <option value="1200x628">Landscape (1200x628) - Facebook Post</option>
+                            <option value="1500x500">Banner (1500x500) - Website Header</option>
+                            <option value="500x500">Logo (500x500) - Square Logo</option>
+                            <option value="custom">Custom Size</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="custom-dimensions" style="display: none;">
+                        <label for="custom-size">Custom Dimensions (Width x Height)</label>
+                        <input type="text" name="custom-size" id="custom-size" placeholder="e.g., 800x600">
+                    </div>
+                </fieldset>
+
+                <!-- Design Preferences -->
+                <fieldset class="form-section">
+                    <legend>Design Preferences</legend>
+                    
+                    <div class="form-group">
+                        <label for="target-audience">Target Audience</label>
+                        <input type="text" name="target-audience" id="target-audience" placeholder="e.g., Young professionals, Parents, Tech enthusiasts">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mood">Mood/Feeling</label>
+                        <select name="mood" id="mood">
+                            <option value="">Select mood...</option>
+                            <option value="professional">Professional</option>
+                            <option value="friendly">Friendly</option>
+                            <option value="energetic">Energetic</option>
+                            <option value="calm">Calm & Peaceful</option>
+                            <option value="luxurious">Luxurious</option>
+                            <option value="trustworthy">Trustworthy</option>
+                            <option value="innovative">Innovative</option>
+                            <option value="warm">Warm & Welcoming</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text-content">Text Content (if any)</label>
+                        <textarea name="text-content" id="text-content" rows="3" placeholder="Enter the text you want to include in your template"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Requirements -->
                 <div class="form-group">
-                    <label>Describe what you need:</label>
-                    <textarea name="description" rows="4"></textarea>
+                    <label for="description">Additional Requirements & Notes</label>
+                    <textarea name="description" id="description" rows="4" placeholder="Describe any specific requirements, inspiration, or additional details..."></textarea>
                 </div>
 
-                <button type="submit">Submit Request</button>
+                <button type="submit">Create My Template</button>
             </form>
         </section>
     </main>
+    <script src="Script.js"></script>
 </body>
 </html>
