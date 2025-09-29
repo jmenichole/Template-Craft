@@ -1,196 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Template-Craft</title>
+    <title>PDF Builder - Dynamic PDF Templates for Bubble</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Template-Craft</h1>
+        <h1>PDF Builder</h1>
+        <p class="subtitle">Dynamic PDF Templates for Bubble Developers</p>
         <nav>
-            <a href="#home">Home</a>
+            <a href="#builder">Builder</a>
             <a href="#templates">Templates</a>
-            <a href="#order">Order</a>
+            <a href="#docs">API Docs</a>
         </nav>
     </header>
 
     <main>
-        <section id="order-form">
-            <h2>Create Your Custom Template</h2>
-            <form id="template-request">
-                <!-- Template Type Selection -->
+        <section id="pdf-builder">
+            <h2>Create Dynamic PDF Template</h2>
+            <form id="pdf-template-builder">
+                <!-- PDF Template Type Selection -->
                 <div class="form-group">
-                    <label for="template-type">What type of template do you need?</label>
-                    <select name="template-type" id="template-type" required>
-                        <option value="">Select a template type...</option>
-                        <option value="social-media-post">Social Media Post</option>
-                        <option value="social-media-story">Social Media Story</option>
-                        <option value="banner">Banner/Header</option>
-                        <option value="logo">Logo Design</option>
-                        <option value="infographic">Infographic</option>
-                        <option value="business-card">Business Card</option>
-                        <option value="flyer">Flyer/Poster</option>
-                        <option value="presentation">Presentation Template</option>
-                        <option value="email-signature">Email Signature</option>
-                        <option value="website-template">Website Template</option>
-                        <option value="other">Other</option>
+                    <label for="pdf-template-type">PDF Template Type</label>
+                    <select name="pdf-template-type" id="pdf-template-type" required>
+                        <option value="">Select a PDF template type...</option>
+                        <option value="invoice">Invoice</option>
+                        <option value="receipt">Receipt</option>
+                        <option value="report">Business Report</option>
+                        <option value="certificate">Certificate</option>
+                        <option value="contract">Contract</option>
+                        <option value="proposal">Proposal</option>
+                        <option value="letter">Business Letter</option>
+                        <option value="statement">Statement</option>
+                        <option value="catalog">Product Catalog</option>
+                        <option value="brochure">Brochure</option>
+                        <option value="custom">Custom Template</option>
                     </select>
                 </div>
 
-                <!-- Brand Information -->
+                <!-- Template Configuration -->
                 <fieldset class="form-section">
-                    <legend>Brand Information</legend>
+                    <legend>PDF Configuration</legend>
                     
                     <div class="form-group">
-                        <label for="brand-name">Brand/Business Name</label>
-                        <input type="text" name="brand-name" id="brand-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="brand-colors">Brand Colors (e.g., #FF5733, blue, etc.)</label>
-                        <input type="text" name="brand-colors" id="brand-colors" placeholder="Enter your brand colors">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="brand-style">Brand Style</label>
-                        <select name="brand-style" id="brand-style">
-                            <option value="">Select style...</option>
-                            <option value="modern">Modern & Clean</option>
-                            <option value="professional">Professional & Corporate</option>
-                            <option value="creative">Creative & Artistic</option>
-                            <option value="minimalist">Minimalist</option>
-                            <option value="bold">Bold & Vibrant</option>
-                            <option value="elegant">Elegant & Sophisticated</option>
-                            <option value="playful">Playful & Fun</option>
-                            <option value="vintage">Vintage & Retro</option>
-                        </select>
-                    </div>
-                </fieldset>
-
-                <!-- Content Specifications -->
-                <fieldset class="form-section">
-                    <legend>Content Specifications</legend>
-                    
-                    <div class="form-group">
-                        <label for="platform">Target Platform/Use</label>
-                        <select name="platform" id="platform">
-                            <option value="">Select platform...</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="twitter">Twitter/X</option>
-                            <option value="linkedin">LinkedIn</option>
-                            <option value="youtube">YouTube</option>
-                            <option value="tiktok">TikTok</option>
-                            <option value="kick">Kick</option>
-                            <option value="twitch">Twitch</option>
-                            <option value="discord">Discord</option>
-                            <option value="website">Website</option>
-                            <option value="print">Print Material</option>
-                            <option value="email">Email</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dimensions">Preferred Dimensions</label>
-                        <select name="dimensions" id="dimensions">
-                            <option value="">Select dimensions...</option>
-                            <option value="1080x1080">Square (1080x1080) - Instagram Post</option>
-                            <option value="1080x1920">Story (1080x1920) - Instagram/Facebook Story</option>
-                            <option value="1200x628">Landscape (1200x628) - Facebook Post</option>
-                            <option value="1500x500">Banner (1500x500) - Website Header</option>
-                            <option value="1920x1080">Stream Banner (1920x1080) - Kick/Twitch</option>
-                            <option value="1200x480">Channel Banner (1200x480) - Kick/Twitch</option>
-                            <option value="500x500">Logo (500x500) - Square Logo</option>
+                        <label for="page-format">Page Format</label>
+                        <select name="page-format" id="page-format">
+                            <option value="a4">A4 (210 × 297 mm)</option>
+                            <option value="letter">Letter (8.5 × 11 in)</option>
+                            <option value="legal">Legal (8.5 × 14 in)</option>
+                            <option value="a3">A3 (297 × 420 mm)</option>
                             <option value="custom">Custom Size</option>
                         </select>
                     </div>
 
-                    <div class="form-group" id="custom-dimensions" style="display: none;">
-                        <label for="custom-size">Custom Dimensions (Width x Height)</label>
-                        <input type="text" name="custom-size" id="custom-size" placeholder="e.g., 800x600">
+                    <div class="form-group">
+                        <label for="orientation">Orientation</label>
+                        <select name="orientation" id="orientation">
+                            <option value="portrait">Portrait</option>
+                            <option value="landscape">Landscape</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="template-name">Template Name</label>
+                        <input type="text" name="template-name" id="template-name" required placeholder="e.g., Monthly Invoice Template">
                     </div>
                 </fieldset>
 
-                <!-- Call to Action & Focus -->
+                <!-- Dynamic Content Fields -->
                 <fieldset class="form-section">
-                    <legend>Call to Action & Focus (Optional)</legend>
+                    <legend>Dynamic Content & Data Binding</legend>
                     
                     <div class="form-group">
-                        <label for="topic-focus">Main Topic/Focus</label>
-                        <input type="text" name="topic-focus" id="topic-focus" placeholder="e.g., Product Launch, Event Promotion, Brand Awareness">
+                        <label for="data-fields">Data Fields (Bubble Variables)</label>
+                        <textarea name="data-fields" id="data-fields" rows="4" placeholder="Enter field names separated by commas:
+company_name, customer_name, amount, date, items_list, etc."></textarea>
+                        <small>These fields will be bound to Bubble data and can be dynamically populated</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="cta-text">Call to Action Text</label>
-                        <input type="text" name="cta-text" id="cta-text" placeholder="e.g., Shop Now, Learn More, Sign Up, Subscribe">
+                        <label for="company-info">Company Information Fields</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="company-fields" value="logo"> Company Logo</label>
+                            <label><input type="checkbox" name="company-fields" value="name"> Company Name</label>
+                            <label><input type="checkbox" name="company-fields" value="address"> Address</label>
+                            <label><input type="checkbox" name="company-fields" value="phone"> Phone</label>
+                            <label><input type="checkbox" name="company-fields" value="email"> Email</label>
+                            <label><input type="checkbox" name="company-fields" value="website"> Website</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="cta-type">Call to Action Type</label>
-                        <select name="cta-type" id="cta-type">
-                            <option value="">Select CTA type...</option>
-                            <option value="button">Button</option>
-                            <option value="link">Text Link</option>
-                            <option value="banner">Banner/Badge</option>
-                            <option value="overlay">Overlay Text</option>
-                            <option value="integrated">Integrated in Design</option>
-                            <option value="none">No CTA</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="urgency">Urgency/Timing</label>
-                        <select name="urgency" id="urgency">
-                            <option value="">Select urgency...</option>
-                            <option value="immediate">Immediate (Act Now)</option>
-                            <option value="limited-time">Limited Time Offer</option>
-                            <option value="upcoming">Upcoming Event/Launch</option>
-                            <option value="ongoing">Ongoing Campaign</option>
-                            <option value="seasonal">Seasonal/Holiday</option>
-                            <option value="none">No Time Pressure</option>
+                        <label for="dynamic-tables">Dynamic Tables/Lists</label>
+                        <select name="dynamic-tables" id="dynamic-tables">
+                            <option value="none">No dynamic tables</option>
+                            <option value="items">Item/Product List</option>
+                            <option value="transactions">Transaction History</option>
+                            <option value="custom">Custom Data Table</option>
                         </select>
                     </div>
                 </fieldset>
 
-                <!-- Design Preferences -->
                 <fieldset class="form-section">
-                    <legend>Design Preferences</legend>
+                    <legend>Styling & Layout</legend>
                     
                     <div class="form-group">
-                        <label for="target-audience">Target Audience</label>
-                        <input type="text" name="target-audience" id="target-audience" placeholder="e.g., Young professionals, Parents, Tech enthusiasts">
+                        <label for="color-scheme">Color Scheme</label>
+                        <select name="color-scheme" id="color-scheme">
+                            <option value="professional">Professional (Blue/Gray)</option>
+                            <option value="modern">Modern (Black/White)</option>
+                            <option value="corporate">Corporate (Navy/Gold)</option>
+                            <option value="creative">Creative (Multi-color)</option>
+                            <option value="minimal">Minimal (Gray/White)</option>
+                            <option value="custom">Custom Colors</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="custom-colors" style="display: none;">
+                        <label for="primary-color">Primary Color</label>
+                        <input type="color" name="primary-color" id="primary-color" value="#007bff">
+                        <label for="secondary-color">Secondary Color</label>
+                        <input type="color" name="secondary-color" id="secondary-color" value="#6c757d">
                     </div>
 
                     <div class="form-group">
-                        <label for="mood">Mood/Feeling</label>
-                        <select name="mood" id="mood">
-                            <option value="">Select mood...</option>
-                            <option value="professional">Professional</option>
-                            <option value="friendly">Friendly</option>
-                            <option value="energetic">Energetic</option>
-                            <option value="calm">Calm & Peaceful</option>
-                            <option value="luxurious">Luxurious</option>
-                            <option value="trustworthy">Trustworthy</option>
-                            <option value="innovative">Innovative</option>
-                            <option value="warm">Warm & Welcoming</option>
+                        <label for="font-style">Font Style</label>
+                        <select name="font-style" id="font-style">
+                            <option value="sans-serif">Sans-serif (Modern)</option>
+                            <option value="serif">Serif (Traditional)</option>
+                            <option value="monospace">Monospace (Technical)</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="text-content">Text Content (if any)</label>
-                        <textarea name="text-content" id="text-content" rows="3" placeholder="Enter the text you want to include in your template"></textarea>
+                        <label for="layout-style">Layout Style</label>
+                        <select name="layout-style" id="layout-style">
+                            <option value="standard">Standard Layout</option>
+                            <option value="compact">Compact Layout</option>
+                            <option value="spacious">Spacious Layout</option>
+                            <option value="creative">Creative Layout</option>
+                        </select>
                     </div>
                 </fieldset>
 
-                <!-- Additional Requirements -->
+                <!-- Header & Footer -->
+                <fieldset class="form-section">
+                    <legend>Header & Footer Options</legend>
+                    
+                    <div class="form-group">
+                        <label><input type="checkbox" name="include-header" value="true"> Include Header</label>
+                        <label><input type="checkbox" name="include-footer" value="true"> Include Footer</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="header-content">Header Content</label>
+                        <input type="text" name="header-content" id="header-content" placeholder="e.g., {{company_name}} - {{document_type}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="footer-content">Footer Content</label>
+                        <input type="text" name="footer-content" id="footer-content" placeholder="e.g., Page {{page_number}} of {{total_pages}}">
+                    </div>
+                </fieldset>
+
+                <!-- Bubble Integration -->
                 <div class="form-group">
-                    <label for="description">Additional Requirements & Notes</label>
-                    <textarea name="description" id="description" rows="4" placeholder="Describe any specific requirements, inspiration, or additional details..."></textarea>
+                    <label for="bubble-integration">Bubble Integration Notes</label>
+                    <textarea name="bubble-integration" id="bubble-integration" rows="3" placeholder="Special requirements for Bubble integration, API endpoints, or custom functionality..."></textarea>
                 </div>
 
-                <button type="submit">Create My Template</button>
+                <div style="background: #e8f4fd; border: 1px solid #bee5eb; border-radius: 8px; padding: 1rem; margin: 1.5rem 0; font-size: 0.9rem; color: #055160;">
+                    <strong>🔧 PDF Builder for Bubble</strong><br>
+                    This tool creates dynamic PDF templates that integrate seamlessly with Bubble apps. Define your template structure, data fields, and styling - then use our API to generate PDFs with live data from your Bubble database.<br><br>
+                    <small><strong>Features:</strong> Dynamic data binding, custom styling, header/footer support, tables, and more.</small>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="create-template">📄 Create PDF Template</button>
+                    <button type="button" id="preview-template">👁️ Preview Template</button>
+                    <button type="button" id="test-pdf">🧪 Generate Test PDF</button>
+                </div>
             </form>
+
+            <!-- Template Preview Area -->
+            <div id="template-preview" style="display: none;">
+                <h3>Template Preview</h3>
+                <div id="preview-content"></div>
+            </div>
         </section>
     </main>
     <script src="Script.js"></script>

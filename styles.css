@@ -70,6 +70,13 @@ header h1 {
     color: var(--tan-100);
 }
 
+.subtitle {
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+    color: var(--gray-300);
+    font-weight: 400;
+}
+
 nav {
     margin-top: 1rem;
 }
@@ -91,7 +98,7 @@ nav a:hover {
 }
 
 /* Professional form styling with enhanced visual hierarchy */
-#order-form {
+#pdf-builder, #order-form {
     max-width: 850px;
     margin: 3rem auto;
     padding: 2.5rem;
@@ -385,4 +392,102 @@ html {
 ::selection {
     background: var(--pink-200);
     color: var(--pink-800);
+}
+
+/* PDF Builder specific styles */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.button-group button {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    margin: 0;
+    font-size: 14px;
+    padding: 12px 20px;
+}
+
+#preview-template {
+    background: linear-gradient(135deg, var(--tan-500) 0%, var(--tan-600) 100%);
+}
+
+#test-pdf {
+    background: linear-gradient(135deg, var(--green-500) 0%, var(--green-600) 100%);
+}
+
+#template-preview {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+}
+
+#template-preview h3 {
+    text-align: center;
+    color: var(--gray-700);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 2px solid var(--gray-300);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+input[type="color"]:focus {
+    border-color: var(--green-500);
+    box-shadow: 0 0 0 3px var(--green-100);
+}
+
+small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .button-group button {
+        max-width: none;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,0 +1,230 @@
+{
+  "name": "PDF Builder",
+  "version": "1.0.0",
+  "description": "Dynamic PDF Templates for Bubble - Better than native PDF generation",
+  "author": "Jamie Vargas",
+  "category": "Documents & Files",
+  "plugin_type": "client_side",
+  "bubble_api_version": "1.4",
+  "icon": "https://img.icons8.com/material-outlined/24/000000/pdf.png",
+  "main_file": "Script.js",
+  "css_file": "styles.css",
+  "dependencies": {
+    "jspdf": "2.5.1"
+  },
+  "elements": [
+    {
+      "type": "visual",
+      "name": "PDFBuilder",
+      "display": "PDF Template Builder",
+      "description": "Create dynamic PDF templates with data binding",
+      "icon": "fa-file-pdf",
+      "category": "input forms",
+      "properties": [
+        {
+          "name": "template_type",
+          "display": "Template Type",
+          "type": "dropdown",
+          "options": [
+            {"value": "invoice", "display": "Invoice"},
+            {"value": "receipt", "display": "Receipt"},
+            {"value": "report", "display": "Business Report"},
+            {"value": "certificate", "display": "Certificate"},
+            {"value": "contract", "display": "Contract"},
+            {"value": "proposal", "display": "Proposal"},
+            {"value": "letter", "display": "Business Letter"},
+            {"value": "statement", "display": "Statement"},
+            {"value": "catalog", "display": "Product Catalog"},
+            {"value": "brochure", "display": "Brochure"},
+            {"value": "custom", "display": "Custom Template"}
+          ],
+          "default_value": "invoice"
+        },
+        {
+          "name": "page_format",
+          "display": "Page Format",
+          "type": "dropdown",
+          "options": [
+            {"value": "a4", "display": "A4"},
+            {"value": "letter", "display": "Letter"},
+            {"value": "legal", "display": "Legal"},
+            {"value": "a3", "display": "A3"}
+          ],
+          "default_value": "a4"
+        },
+        {
+          "name": "orientation",
+          "display": "Orientation",
+          "type": "dropdown",
+          "options": [
+            {"value": "portrait", "display": "Portrait"},
+            {"value": "landscape", "display": "Landscape"}
+          ],
+          "default_value": "portrait"
+        },
+        {
+          "name": "color_scheme",
+          "display": "Color Scheme",
+          "type": "dropdown",
+          "options": [
+            {"value": "professional", "display": "Professional"},
+            {"value": "modern", "display": "Modern"},
+            {"value": "corporate", "display": "Corporate"},
+            {"value": "creative", "display": "Creative"},
+            {"value": "minimal", "display": "Minimal"}
+          ],
+          "default_value": "professional"
+        },
+        {
+          "name": "data_source",
+          "display": "Data Source",
+          "type": "data_source",
+          "description": "Bubble data to populate the PDF template"
+        }
+      ],
+      "events": [
+        {
+          "name": "pdf_generated",
+          "display": "PDF Generated",
+          "description": "Triggered when PDF is successfully generated"
+        },
+        {
+          "name": "template_created",
+          "display": "Template Created",
+          "description": "Triggered when template configuration is created"
+        }
+      ],
+      "actions": [
+        {
+          "name": "generate_pdf",
+          "display": "Generate PDF",
+          "description": "Generate PDF with current data",
+          "params": [
+            {
+              "name": "template_data",
+              "display": "Template Data",
+              "type": "text",
+              "description": "JSON data to populate template"
+            }
+          ]
+        },
+        {
+          "name": "download_pdf",
+          "display": "Download PDF",
+          "description": "Download generated PDF"
+        }
+      ],
+      "states": [
+        {
+          "name": "pdf_url",
+          "display": "Generated PDF URL",
+          "type": "text",
+          "description": "URL of the generated PDF"
+        },
+        {
+          "name": "template_config",
+          "display": "Template Configuration",
+          "type": "text",
+          "description": "JSON configuration of the template"
+        }
+      ]
+    }
+  ],
+  "server_side_actions": [
+    {
+      "name": "generate_pdf_server",
+      "display": "Generate PDF (Server)",
+      "description": "Server-side PDF generation for better performance",
+      "category": "data",
+      "params": [
+        {
+          "name": "template_id",
+          "display": "Template ID",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "data",
+          "display": "PDF Data",
+          "type": "text",
+          "required": true,
+          "description": "JSON data to populate the PDF"
+        }
+      ],
+      "return_value": {
+        "type": "text",
+        "description": "Generated PDF URL or base64 data"
+      }
+    }
+  ],
+  "api_endpoints": [
+    {
+      "name": "generate_pdf",
+      "method": "POST",
+      "path": "/api/generate-pdf",
+      "description": "Generate PDF from template and data",
+      "parameters": [
+        {
+          "name": "template_id",
+          "type": "string",
+          "required": true,
+          "description": "ID of the PDF template"
+        },
+        {
+          "name": "data",
+          "type": "object",
+          "required": true,
+          "description": "Data to populate the template"
+        }
+      ],
+      "response": {
+        "success": "boolean",
+        "pdf_url": "string",
+        "pdf_base64": "string"
+      }
+    }
+  ],
+  "pricing": {
+    "model": "subscription",
+    "plans": [
+      {
+        "name": "Starter",
+        "price": 29,
+        "currency": "USD",
+        "period": "month",
+        "features": [
+          "Up to 1,000 PDFs/month",
+          "5 templates",
+          "Basic styling options",
+          "Email support"
+        ]
+      },
+      {
+        "name": "Professional", 
+        "price": 79,
+        "currency": "USD",
+        "period": "month",
+        "features": [
+          "Up to 10,000 PDFs/month",
+          "Unlimited templates",
+          "Advanced styling & layouts",
+          "Custom branding",
+          "Priority support"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": 199,
+        "currency": "USD", 
+        "period": "month",
+        "features": [
+          "Unlimited PDFs",
+          "White-label solution",
+          "Custom integrations",
+          "Dedicated support",
+          "SLA guarantee"
+        ]
+      }
+    ]
+  }
+}
