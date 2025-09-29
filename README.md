@@ -30,7 +30,6 @@ A powerful PDF generation plugin for Bubble developers that creates dynamic, pro
 - **Product Catalogs**: Multi-page product listings
 
 ## 🔧 Bubble Integration
-
 ### Simple API Call
 ```javascript
 // Call from your Bubble workflow
