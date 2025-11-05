@@ -17,12 +17,17 @@
 
 // Import fetch for Node.js < 18 (optional for Node 18+)
 let fetch;
-try {
-    // Try to use built-in fetch (Node 18+)
+if (globalThis.fetch) {
+    // Use built-in fetch (Node 18+)
     fetch = globalThis.fetch;
-} catch (e) {
+} else {
     // Fall back to node-fetch for older Node versions
-    fetch = require('node-fetch');
+    try {
+        fetch = require('node-fetch');
+    } catch (e) {
+        console.error('Error: fetch is not available. Please upgrade to Node.js 18+ or install node-fetch.');
+        process.exit(1);
+    }
 }
 
 // Configuration
