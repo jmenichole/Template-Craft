@@ -15,6 +15,7 @@
     --green-50: #F0FDF4;
     --green-100: #DCFCE7;
     --green-200: #BBF7D0;
+    --green-300: #86EFAC;
     --green-500: #22C55E;
     --green-600: #16A34A;
     --green-700: #15803D;
@@ -23,14 +24,17 @@
     --tan-50: #FEFDFB;
     --tan-100: #F5E6D3;
     --tan-200: #E6CCB2;
+    --tan-300: #DDB892;
     --tan-400: #D2B48C;
     --tan-500: #CD853F;
     --tan-600: #A0522D;
+    --tan-700: #8B4513;
     
     /* Orange palette */
     --orange-50: #FFF7ED;
     --orange-100: #FFEDD5;
     --orange-200: #FED7AA;
+    --orange-300: #FDBA74;
     --orange-500: #F97316;
     --orange-600: #EA580C;
     --orange-700: #C2410C;
@@ -39,6 +43,7 @@
     --pink-50: #FDF2F8;
     --pink-100: #FCE7F3;
     --pink-200: #FBCFE8;
+    --pink-300: #F9A8D4;
     --pink-500: #EC4899;
     --pink-600: #DB2777;
     --pink-700: #BE185D;

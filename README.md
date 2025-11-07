@@ -2,6 +2,24 @@
 
 A comprehensive web application for content creators to generate custom templates, social media images, banners, logos, and marketing materials tailored to their brand.
 
+## 🚀 Quick Start
+
+Template-Craft offers two modes depending on your technical expertise:
+
+### 🎨 **For Non-Developers**
+If you're looking for a simple, no-code solution:
+1. Visit the [landing page](index.html)
+2. Click **"I'm Not a Developer"**
+3. Fill out the template form
+4. Generate AI-powered design concepts instantly
+
+### 💻 **For Developers**
+If you want to integrate with Canva API:
+1. Visit the [landing page](index.html)
+2. Click **"I'm a Developer"**
+3. Follow the setup instructions to use the Canva Connect API
+4. See [CANVA_INTEGRATION.md](CANVA_INTEGRATION.md) for detailed documentation
+
 ## Features
 
 ### Template Types
@@ -25,11 +43,21 @@ A comprehensive web application for content creators to generate custom template
 
 ## How to Use
 
+### Non-Developer Mode (Simple Form)
 1. **Select Template Type**: Choose from 11+ template categories
 2. **Enter Brand Information**: Provide your brand name, colors, and style preferences
 3. **Specify Content Details**: Select target platform and dimensions
 4. **Define Design Preferences**: Set target audience, mood, and include any text content
 5. **Generate AI Template Ideas**: Click the AI-powered button to generate 3 unique, detailed template design concepts
+
+### Developer Mode (Canva API Integration)
+1. **Set Up Canva Developer Account**: Create an app at [Canva Developers Portal](https://www.canva.com/developers)
+2. **Install Dependencies**: `npm install node-fetch` (for Node.js < 18)
+3. **Configure API Token**: Set your token with required `design:content:write` scope
+4. **Run Integration Script**: `CANVA_API_TOKEN=your_token node canvaIntegration.js`
+5. **Create Designs Programmatically**: Use the script to automate design creation
+
+See [CANVA_INTEGRATION.md](CANVA_INTEGRATION.md) for complete developer documentation.
 
 ## Technical Features
 
@@ -59,5 +87,36 @@ python3 -m http.server 8000
 2. Click "🤖 Generate AI Template Ideas"
 3. Enter your OpenAI API key when prompted (stored locally in your browser)
 4. Receive 3 detailed, unique template design concepts tailored to your specifications
+
+## 📋 Navigation Guide
+
+- **[index.html](index.html)** - Landing page with developer/non-developer selection
+- **[non-dev.html](non-dev.html)** - Template generation form (no coding required)
+- **[dev.html](dev.html)** - Developer documentation and Canva API integration guide
+- **[canvaIntegration.js](canvaIntegration.js)** - Node.js script for Canva API integration
+- **[CANVA_INTEGRATION.md](CANVA_INTEGRATION.md)** - Complete Canva integration documentation
+
+## ⚠️ Important Notes
+
+### GitHub Pages Limitations
+- GitHub Pages is a **static hosting service** and can only serve HTML, CSS, and client-side JavaScript
+- The Canva integration script (`canvaIntegration.js`) **cannot run on GitHub Pages**
+- To use the Canva API integration, you must:
+  - Run the script locally on your machine, OR
+  - Deploy it to a backend server that supports Node.js (e.g., Heroku, AWS, Google Cloud)
+
+### Two Modes of Operation
+1. **Non-Developer Mode**: Works entirely in the browser using OpenAI API for design suggestions
+2. **Developer Mode**: Requires local/server execution to create actual designs in Canva via API
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+## 📄 License
+
+See [LICENSE](LICENSE) file for details.
+
+---
 
 Perfect for content creators, marketers, small businesses, and anyone needing custom visual assets for their brand!
